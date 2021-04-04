@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.8.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-beanutils-1.8.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/druid-1.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/mysql-connector-java-8.0.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/spring-beans-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/spring-core-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/spring-jdbc-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/spring-tx-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/taglibs-standard-impl-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/taglibs-standard-jstlel-1.2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/taglibs-standard-spec-1.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

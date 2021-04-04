@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>邮箱登录</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+</head>
+<body>
+<div class="m-container-small m-padded-tb-massive" style="max-width: 25em !important;">
+    <div class="ui middle aligned center inverted segment">
+        <form action="#" method="post" th:action="@{/registed}">
+            <div class="ui inverted form" >
+                <div class="field">
+                    <label>邮箱</label>
+                    <input placeholder="Email" type="email" name="email">
+                </div>
+                <div class="field">
+                    <label>密码</label>
+                    <input placeholder="密码" type="password" name="password1">
+                </div>
+                <div class="field">
+                    <label>密码</label>
+                    <input placeholder="再次输入密码" type="password" name="password2">
+                </div>
+                <button class="ui submit button" >注册</button>
+                <div class="ui mini negative error message"></div>
+                <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

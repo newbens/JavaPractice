@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--&lt;!&ndash;        配置service对象&ndash;&gt;-->
+<!--    <bean id="accountService" class="cn.niuben.service.Imp.AccountServiceImp">-->
+<!--&lt;!&ndash;        注入&ndash;&gt;-->
+<!--        <property name="accountDao" ref="accountDao"></property>-->
+<!--        <property name="tm" ref="tm"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="accountDao" class="cn.niuben.dao.Imp.AccountDaoImp">-->
+<!--        <property name="cu" ref="connectionUtils"></property>-->
+<!--        <property name="runner" ref="runner"></property>-->
+<!--    </bean>-->
+<!--切记设置多例-->
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype"></bean>
+<!--&lt;!&ndash;    配置Druid&ndash;&gt;-->
+<!--    <context:component-scan base-package="cn.niuben"></context:component-scan>-->
+<!--    <bean id="tm" class="cn.niuben.util.TrancationManager">-->
+<!--        <property name="cu" ref="connectionUtils"></property>-->
+<!--    </bean>-->
+
+    <bean id="datasource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/java?serverTimezone=Asia/Shanghai"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="nn8221002**.-"></property>
+        <property name="initialSize" value="1" />
+        <property name="maxActive" value="50" />
+        <property name="maxWait" value="30000" />
+    </bean>
+<!--    <bean id="connectionUtils" class="cn.niuben.util.ConnectionUtils">-->
+<!--        <property name="dataSource" ref="datasource"></property>-->
+<!--    </bean>-->
+    <context:component-scan base-package="cn.niuben"></context:component-scan>
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>

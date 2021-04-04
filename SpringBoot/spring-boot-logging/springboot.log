@@ -1,0 +1,11 @@
+2020-05-14 15:38:00.075  INFO 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : Starting SpringBootLoggingApplicationTests on LAPTOP-CMKIJT1U with PID 3480 (started by lenovo-pc in E:\SpringBoot\spring-boot-logging)
+2020-05-14 15:38:00.077 DEBUG 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : Running with Spring Boot v2.2.7.RELEASE, Spring v5.2.6.RELEASE
+2020-05-14 15:38:00.078  INFO 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : No active profile set, falling back to default profiles: default
+2020-05-14 15:38:01.165  INFO 3480 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-14 15:38:01.435  INFO 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : Started SpringBootLoggingApplicationTests in 1.745 seconds (JVM running for 2.938)
+2020-05-14 15:38:01.656 TRACE 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : 这是trace日志
+2020-05-14 15:38:01.656 DEBUG 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : 这是debug日志
+2020-05-14 15:38:01.657  INFO 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : 这是info日志
+2020-05-14 15:38:01.657  WARN 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : 这是warn日志
+2020-05-14 15:38:01.657 ERROR 3480 --- [main] c.n.s.SpringBootLoggingApplicationTests  : 这是error日志
+2020-05-14 15:38:01.675  INFO 3480 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

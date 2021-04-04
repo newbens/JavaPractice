@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="beanfactory" class="cn.niuben.factory.Beanfactory">
+        <property name="accountService" ref="accountService"></property>
+    </bean>
+    <bean id="accountService" class="cn.niuben.service.Imp.AccountServiceImp">
+        <property name="tm" ref="transM"></property>
+    </bean>
+    <bean id="proxyAccountService" factory-bean="beanfactory" factory-method="getAccountService"></bean>
+    <bean id="transM" class="cn.niuben.utils.TransactionManager"></bean>
+</beans>

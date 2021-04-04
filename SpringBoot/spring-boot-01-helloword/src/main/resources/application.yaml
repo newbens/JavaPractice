@@ -1,0 +1,13 @@
+#导入spring-boot-configuration-processor依赖才会有配置提示
+#server:
+#  port: 8081
+#person:
+#  name: 牛犇
+#  age: 23
+#  bir: 1998/01/15
+#  boss: false
+#  maps: {K1:V1}
+#  lists: [a,b,c]
+#  dog:
+#      name: 大黄
+#      age: 2

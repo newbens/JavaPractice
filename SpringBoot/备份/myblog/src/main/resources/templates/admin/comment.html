@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/typo.css">
+    <link rel="stylesheet" href="../../static/css/animate.css">
+    <link rel="stylesheet" href="../../static/lib/prism/prism.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">管理后台</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class=" book icon"></i>博客</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class=" keyboard outline icon"></i>评论</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" src="../../static/images/tx.png">
+                        牛犇
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">修改密码</a>
+                        <a href="#" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" id="hide" class="ui black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon">
+
+        </i>
+    </a>
+</nav>
+
+<!-- 二级导航  -->
+<div class="ui attached pointing teal menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" class="item">发布</a>
+            <a href="#" class="active item">列表</a>
+        </div>
+    </div>
+</div>
+
+<!--中间内容-->
+
+<div class="m-container-small m-padded-tb-big ">
+    <div class="ui container">
+        <form action="#" th:action="@{/admin/comment/search}" method="post" class="ui segment form">
+            <div class="two fields">
+                <div class="field">
+                    <input type="text" placeholder="内容" name="searchcontent">
+                </div>
+                <div class="field ">
+                    <button class="ui teal button"><i class="search icon"></i>搜索</button>
+                </div>
+            </div>
+        </form>
+        <table class="ui teal celled table">
+            <thead>
+            <tr>
+                <th>博客名</th>
+                <th>评论详情</th>
+                <th>发布时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="page : ${page.list}">
+                <td th:text="${page.blogId}">1</td>
+                <td th:text="${page.content}">Java基础</td>
+                <td th:text="${#dates.format(page.createTime,'YYYY年MM月dd日HH时mm分ss秒')}">2019-5-12</td>
+                <td>
+                    <a href="#" class="ui mini red button" th:href="@{'/admin/comment/delete/'+${page.id}}">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- ------------------------分页-------------------------->
+        <div class="ui two column grid">
+            <div class="column"  >
+                <a href="#" th:each="nav : ${page.navigatepageNums}" th:href="@{'/admin/comments?page='+${nav}}" class="ui mini button" th:classappend="${pageNum}==${nav} ? 'teal'"  th:text="${nav}"></a>
+            </div>
+            <div class="right aligned column">
+                <a href="#" th:href="@{'/admin/comments?page='+${page.pages}}" class="ui mini button">末页</a>
+                <span class="ui mini button">共[[${page.pages}]]页</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--底部footer-->
+<footer th:replace="admin/_fragments :: foot" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned  container">
+        <div class="ui inverted divided stackable grid">
+            <div class="five wide column">
+                <h4 class="ui inverted header m-opacity-mini">NewBen</h4>
+                <p class="m-opacity-tiny">这是我的个人博客</p>
+
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-opacity-mini">最新内容</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事(User Story)</a>
+                    <a href="#" class="item">用户故事(User Story)</a>
+                    <a href="#" class="item">用户故事(User Story)</a>
+                </div>
+            </div>
+            <div class="five wide column">
+                <h4 class="ui inverted header m-opacity-mini">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email: newbens@163.com</a>
+                    <a href="#" class="item">QQ: 1099309446</a>
+                </div>
+            </div>
+            <div class="three wide column ">
+                <img src="../../static/images/wechat.jpg" class="ui rounded centered image" alt="" style="width: 110px">
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2018 - 2019 NewBen Designed by niuben</p>
+
+    </div>
+
+</footer>
+
+
+<!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    $('#hide').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('#pay').popup({
+        popup: $('.payB.popup'),
+    });
+
+    $('.ui.dropdown').dropdown();
+
+    $('.search.icon').click(function () {
+        $('ui.segment.form').submit
+    });
+</script>
+
+</body>
+</html>

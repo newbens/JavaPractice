@@ -1,0 +1,11 @@
+2020-05-04 11:15:32.297  INFO 13548 --- [main] com.example.Demo2ApplicationTests        : Starting Demo2ApplicationTests on LAPTOP-CMKIJT1U with PID 13548 (started by lenovo-pc in E:\Spring\demo2)
+2020-05-04 11:15:32.298 DEBUG 13548 --- [main] com.example.Demo2ApplicationTests        : Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-05-04 11:15:32.299  INFO 13548 --- [main] com.example.Demo2ApplicationTests        : No active profile set, falling back to default profiles: default
+2020-05-04 11:15:33.420  INFO 13548 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-04 11:15:33.730  INFO 13548 --- [main] com.example.Demo2ApplicationTests        : Started Demo2ApplicationTests in 1.872 seconds (JVM running for 3.034)
+2020-05-04 11:15:33.911 TRACE 13548 --- [main] com.example.Demo2ApplicationTests        : 这是trace日志
+2020-05-04 11:15:33.911 DEBUG 13548 --- [main] com.example.Demo2ApplicationTests        : 这是debug日志
+2020-05-04 11:15:33.912  INFO 13548 --- [main] com.example.Demo2ApplicationTests        : 这是info日志
+2020-05-04 11:15:33.912  WARN 13548 --- [main] com.example.Demo2ApplicationTests        : 这是warn日志
+2020-05-04 11:15:33.912 ERROR 13548 --- [main] com.example.Demo2ApplicationTests        : 这是error日志
+2020-05-04 11:15:33.929  INFO 13548 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

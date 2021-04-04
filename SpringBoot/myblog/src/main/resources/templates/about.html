@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../static/css/typo.css">
+  <link rel="stylesheet" href="../static/css/animate.css">
+  <link rel="stylesheet" href="../static/lib/prism/prism.css">
+  <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini">
+</nav>
+
+<!--中间内容-->
+<div class="m-container-small  m-padded-tb-big ">
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <div class="ui ten wide column">
+        <div class="ui segment m-margin-tb-tiny">
+          <img src="../static/images/lb.jpg" th:src="@{/images/lb.jpg}" class="ui rounded image " alt=""
+               style="width: 500px">
+        </div>
+      </div>
+      <div class="ui six wide column">
+        <!-- 关于我  -->
+        <div class="ui top attached segment">
+          <div class="ui center aligned header">About Me</div>
+        </div>
+        <div class="ui attached segment">
+          <p class="">牛犇，一位即将毕业的在校大学生，一位终身学习者，希望结识可以共同学习进步的小伙伴。</p>
+          <p class="">热爱编程，喜欢音乐，吉他,篮球，正在努力学习编程....</p>
+        </div>
+        <div class="ui attached segment">
+          <div class="ui teal basic label m-margin-tb-tiny">编程</div>
+          <div class="ui teal basic label m-margin-tb-tiny">猎奇</div>
+          <div class="ui teal basic label m-margin-tb-tiny">制作视频</div>
+          <div class="ui teal basic label m-margin-tb-tiny">音乐</div>
+          <div class="ui teal basic label m-margin-tb-tiny">篮球</div>
+          <div class="ui teal basic label m-margin-tb-tiny">...</div>
+        </div>
+        <div class="ui attached segment">
+          <div class="ui orange basic label m-margin-tb-tiny">Java</div>
+          <div class="ui orange basic label m-margin-tb-tiny">SpringBoot</div>
+          <div class="ui orange basic label m-margin-tb-tiny">Python</div>
+          <div class="ui orange basic label m-margin-tb-tiny">Scrapy</div>
+          <div class="ui orange basic label m-margin-tb-tiny">Mysql</div>
+          <div class="ui orange basic label m-margin-tb-tiny">...</div>
+        </div>
+
+        <div class="ui botton center aligned attached segment">
+          <a href="#" id="wechat" class="ui circular icon button"><i class="ui green weixin icon"></i></a>
+          <a href="#" id="qq" class="ui circular icon button" data-content="QQ : 1099309446"><i
+                  class="ui teal  qq icon"></i></a>
+          <a href="#" id="email" class="ui circular icon button" data-content="Email : newbens@163.com"><i
+                  class="ui teal mail icon"></i></a>
+        </div>
+
+        <div id="wc" class="ui flowing popup transition hidden">
+          <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" class="ui rounded image"
+               style="width: 110px" alt="">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--底部footer-->
+<footer th:replace="_fragments :: foot" class="ui inverted vertical segment m-padded-tb-massive">
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script type="text/javascript" color="0,205,205" opacity='0.7' zIndex="-2" count="200"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+
+<script>
+  $('#hide').click(function () {
+    $('.m-item').toggleClass('m-mobile-hide');
+  });
+
+  $('.ui.dropdown').dropdown();
+
+  $('#qq').popup();
+
+  $('#email').popup();
+
+  $('#wechat').popup({
+    popup: $('#wc'),
+  });
+
+</script>
+
+</body>
+</html>

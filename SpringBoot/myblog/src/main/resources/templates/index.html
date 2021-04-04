@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})"> <!-- 公共部分引用 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/typo.css" >
+    <link rel="stylesheet" href="../static/css/animate.css" >
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" >
+    <link rel="stylesheet" href="../static/css/me.css" >
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(1)">
+</nav>
+<!-- 中间 -->
+<div class="m-padded-tb-large m-container">
+    <div class="ui container">
+        <div class="ui stackable grid ">
+            <!--   左边博客布局   -->
+            <div class="eleven wide column">
+                <!--     -------------------------------top-------------------------------                -->
+                <div class="ui top attached segment">
+                    <div class="ui middle aligned two column grid">
+                        <div class="column">
+                            <h3 class="ui m-teal header">文章</h3>
+                        </div>
+                        <div class="right aligned column">
+                            共<h3 class="ui orange header m-inline-block"th:text="${page.total}"></h3>篇
+                        </div>
+                    </div>
+                </div>
+                <!--     -------------------------------content-------------------------------                -->
+                <div class="ui attached segment">
+                    <div class="ui padded vertical segment m-padded-tb-big" th:each="page : ${page.list}">
+                            <div class="ui middle aligned mobile reversed stackable grid" >
+                                <div class="eleven wide column">
+                                    <a href="#" target="_blank" th:href="'/blog/'+${page.id}" class=" header" ><h3>[[${page.title}]]</h3></a>
+                                    <p class="m-text m-margin-top-small "th:text="${page.description}">常见的代码优化技术有：复写传播，删除死代码, 强度削弱，归纳变量删除
+                                        复写传播:   复写语句：形式为f</P>
+                                    <div class="ui grid">
+                                        <div class="nine wide column">
+                                            <div class="ui horizontal link list mini">
+                                                <div class="item">
+                                                    <img src="../static/images/tx.png" th:src="${page.avatar}" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class="header" th:text="${page.userName}">牛犇</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i><span class="m-margin-top-small" th:text="${#dates.format(page.updateTime,'YYYY年MM月dd日')}"></span>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i>[[${page.views}]]
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="http://lorempixel.com/300/200/sports/C7SKY-COM/"  alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                                <div class="right aligned four wide column">
+                                    <a href="#" class="ui label teal basic m-padded-tiny m-text-spaced"th:text="${page.typeName}">Java基础</a>
+                                    <a href="#" class="ui label teal basic m-padded-tiny m-text-spaced"th:text="${page.tagNames}">Java基础</a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <!--  -----------------------------------分页 ------------------------------------------- -->
+                <div class="ui two column grid m-margin-top-large">
+                    <div class="column"  >
+                        <a href="#" th:each="nav : ${page.navigatepageNums}" th:href="@{'?page='+${nav}}" class="ui mini button" th:classappend="${pageNum}==${nav} ? 'teal'"  th:text="${nav}"></a>
+                    </div>
+                    <div class="right aligned column">
+                        <a href="#" th:href="@{'?page='+${page.pages}}" class="ui mini button">末页</a>
+                        <span class="ui mini button">共[[${page.pages}]]页</span>
+                    </div>
+                </div>
+            </div>
+            <!--   右边分类布局   -->
+            <div class="five wide column">
+                <!-- 热度磅 -->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column ">
+                                <i class="thumbs up icon teal"></i>热度磅
+                            </div>
+                            <div class="right aligned column">
+                                <i class="arrow circle up teal icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui fluid vertical  menu" th:each="hb : ${hotBlog}">
+                            <a href="#"  target="_blank" class=" item"th:text="${hb.title}" th:href="'/blog/'+${hb.id}">
+                                代码优化
+                            </a>
+                            <div class="ui teal label" >访问量:[[${hb.views}]]</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 分类 -->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon teal"></i>分类
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" target="_blank" class="m-text-thin">更多<i class="angle double right icon" ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui fluid vertical menu" th:each="hotType : ${hotType}">
+                            <a href="#" class="item" target="_blank" th:text="${hotType.typeName}" th:href="'/types/'+${hotType.id}" >
+                                Java基础
+                            </a>
+                            <div class="ui  teal label">博客数: [[  ${hotType.num}]]篇</div>
+                    </div>
+                </div>
+                </div>
+                <!-- 标签-->
+                <div class="ui m-margin-top-large segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="tags icon teal"></i>标签
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" target="_blank" class="m-text-thin">更多<i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <a href="#" target="_blank" class="ui teal left pointing label m-margin-top-small" th:each="hotTag : ${hotTag}" th:href="'/tags/'+${hotTag.tagsId}"  >[[${hotTag.name}]]- [[${hotTag.num}]]篇</a>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<!-- 底部 -->
+<footer th:replace="_fragments :: foot" class="ui inverted vertical segment m-padded-tb-massive">
+</footer>
+
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script type="text/javascript" color="0,205,205" opacity='0.7' zIndex="-2" count="200"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    $('#hide').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown();
+</script>
+</body>
+</html>

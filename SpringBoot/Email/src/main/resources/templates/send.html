@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+</head>
+<body>
+    <form action="#" th:action="@{/send}" method="post">
+        <div class="ui container">
+            <div class="field" >
+                <div class="ui left labeled input">
+                    <div class="ui selection compact teal dropdown label" >
+                        <i class="dropdown icon"></i>
+                        <div class="text">邮箱</div>
+                    </div>
+                    <input type="text" name="target" placeholder="邮箱">
+                </div>
+            </div>
+            <div class="field" >
+                <div class="ui left labeled input">
+                    <div class="ui selection compact teal dropdown label" >
+                        <i class="dropdown icon"></i>
+                        <div class="text">标题</div>
+                    </div>
+                    <input type="text" name="title" placeholder="标题">
+                </div>
+            </div>
+            <div class="field">
+                         <textarea placeholder="邮件内容" name="content"  >邮件内容
+                         </textarea>
+            </div>
+            <button class="ui submit button" >发送</button>
+            <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></div>
+        </div>
+    </form>
+
+</body>
+</html>

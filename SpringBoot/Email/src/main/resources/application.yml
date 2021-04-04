@@ -1,0 +1,16 @@
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    username: newbens@163.com
+    password: KGNGGATMGXLVXNGS
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            port: 465

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>收件箱</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+</head>
+<body>
+    <h1>收件箱</h1>
+    <table class="ui teal celled table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>标题</th>
+            <th>发送者</th>
+            <th>内容</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mail : ${mails}">
+            <td th:text="${mail.id}">1</td>
+            <td th:text="${mail.title}">1</td>
+            <td th:text="${mail.from}">1</td>
+            <td th:text="${mail.detail}">1</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

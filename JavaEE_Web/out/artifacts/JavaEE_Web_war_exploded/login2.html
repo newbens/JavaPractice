@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+    <script>
+        window.onload = function () { //页面加载后运行
+            var p = document.getElementById("img");
+            var i = 1;
+            p.onclick = function () {   //给超链接绑定点击事件
+                p.src = "/web/checkcode?"+i+++"";
+            }
+            var c = document.getElementById("imag");
+            c.onclick = function () {   //给图片绑定点击事件
+
+                c.src = "/web/checkcode?"+i+++"";
+            }
+        }
+    </script>
+<body>
+    <form action="/web/LoginServlet" method="get">
+        <input name="username" placeholder="请输入账户"><br>
+        <input name="password" placeholder="请输入密码"><br>
+        <input name="check" placeholder="请输入验证码"><br>
+        <img src="/web/checkcode" id="imag">
+        <a href="/web/login2.html" id="img">看不清换一张？</a><br>
+        <input type="submit" value="登陆" >
+    </form>
+
+</body>
+</html>
